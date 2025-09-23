@@ -1,0 +1,120 @@
+PS D:\dasanshang\qukuailian\Ex1\my1> python split_test_coins.py
+201 Created
+{
+  "tx": {
+    "block_height": -1,
+    "block_index": -1,
+    "hash": "e709104d5bb4be79214202062d16556915ed1ffda68323daf9b1006056b820a5",
+    "addresses": [
+      "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ"
+    ],
+    "total": 10000,
+    "fees": 167596,
+    "size": 498,
+    "vsize": 498,
+    "preference": "high",
+    "relayed_by": "117.131.219.50",
+    "received": "2025-09-23T02:58:00.040464861Z",
+    "ver": 1,
+    "double_spend": false,
+    "vin_sz": 1,
+    "vout_sz": 10,
+    "confirmations": 0,
+    "inputs": [
+      {
+        "prev_hash": "b8a50f1883a4c5b05a1334a7c3e23130953afe5d8b41f9c32343ac9ec69900ea",
+        "output_index": 0,
+        "script": "483045022100f3b593175c464d56f592c22c0fa1cd708b81c62796d47d8f288ee74d9bb827a9022011f55cf7ad74bdb616909cd19bf43528cf2f0d7c80f595dcbd1d58c382c1252e012102e876bfd24c6b120725e437b3c6547499c3437deaee55a68c0abc0694b9f1ac8f",
+        "output_value": 177596,
+        "sequence": 4294967295,
+        "addresses": [
+          "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ"
+        ],
+        "script_type": "pay-to-pubkey-hash",
+        "age": 4703140
+      }
+    ],
+    "outputs": [
+      {
+        "value": 1000,
+        "script": "76a914d4cacd985121cae0e321fd1edeccb7ec2f61749088ac",
+        "addresses": [
+          "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a914d4cacd985121cae0e321fd1edeccb7ec2f61749088ac",
+        "addresses": [
+          "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a914d4cacd985121cae0e321fd1edeccb7ec2f61749088ac",
+        "addresses": [
+          "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a914d4cacd985121cae0e321fd1edeccb7ec2f61749088ac",
+        "addresses": [
+          "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a914d4cacd985121cae0e321fd1edeccb7ec2f61749088ac",
+        "addresses": [
+          "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a914d4cacd985121cae0e321fd1edeccb7ec2f61749088ac",
+        "addresses": [
+          "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a914d4cacd985121cae0e321fd1edeccb7ec2f61749088ac",
+        "addresses": [
+          "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a914d4cacd985121cae0e321fd1edeccb7ec2f61749088ac",
+        "addresses": [
+          "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a914d4cacd985121cae0e321fd1edeccb7ec2f61749088ac",
+        "addresses": [
+          "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a914d4cacd985121cae0e321fd1edeccb7ec2f61749088ac",
+        "addresses": [
+          "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      }
+    ]
+  }
+}

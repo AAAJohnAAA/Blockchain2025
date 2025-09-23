@@ -1,0 +1,49 @@
+PS D:\dasanshang\qukuailian\Ex1\my1> python ex1.py
+201 Created
+{
+  "tx": {
+    "block_height": -1,
+    "block_index": -1,
+    "hash": "661606353869d64620fbaa17ba549279ae35de1eedddbc05d7abdced65ebb544",
+    "addresses": [
+      "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ",
+      "mv4rnyY3Su5gjcDNzbMLKBQkBicCtHUtFB"
+    ],
+    "total": 1000,
+    "fees": 0,
+    "size": 191,
+    "vsize": 191,
+    "preference": "low",
+    "relayed_by": "117.131.219.50",
+    "received": "2025-09-23T03:09:10.488046989Z",
+    "ver": 1,
+    "double_spend": false,
+    "vin_sz": 1,
+    "vout_sz": 1,
+    "confirmations": 0,
+    "inputs": [
+      {
+        "prev_hash": "e709104d5bb4be79214202062d16556915ed1ffda68323daf9b1006056b820a5",
+        "output_index": 0,
+        "script": "473044022077d62e2d68bf166260a03735d3c0066c7ddf1769b0cff173623b91ee6103edfd02207b42ab17c7745c891c4be210ccc12ab7fb936a6da9bd7bab170b192bcdaf2ae6012102e876bfd24c6b120725e437b3c6547499c3437deaee55a68c0abc0694b9f1ac8f",
+        "output_value": 1000,
+        "sequence": 4294967295,
+        "addresses": [
+          "mzv6VjEAHgq3MGpeT5rMhtYMrJ4sNnQvDQ"
+        ],
+        "script_type": "pay-to-pubkey-hash",
+        "age": 4703777
+      }
+    ],
+    "outputs": [
+      {
+        "value": 1000,
+        "script": "76a9149f9a7abd600c0caa03983a77c8c3df8e062cb2fa88ac",
+        "addresses": [
+          "mv4rnyY3Su5gjcDNzbMLKBQkBicCtHUtFB"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      }
+    ]
+  }
+}
