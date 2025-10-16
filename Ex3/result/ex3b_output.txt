@@ -1,0 +1,45 @@
+PS D:\dasanshang\qukuailian\Ex3\code> python ex3b.py
+201 Created
+{
+  "tx": {
+    "block_height": -1,
+    "block_index": -1,
+    "hash": "a1c449600fba6c69ec8dfb9c675c88a63eab23993ca7e1e5dab0d6b0f929eee9",
+    "addresses": [
+      "mv4rnyY3Su5gjcDNzbMLKBQkBicCtHUtFB"
+    ],
+    "total": 500,
+    "fees": 133993,
+    "size": 95,
+    "vsize": 95,
+    "preference": "high",
+    "relayed_by": "60.29.153.8",
+    "received": "2025-10-16T00:47:49.872888139Z",
+    "ver": 1,
+    "double_spend": false,
+    "vin_sz": 1,
+    "vout_sz": 1,
+    "confirmations": 0,
+    "inputs": [
+      {
+        "prev_hash": "ce1f1f8a8764d0f5a9ea3f6544240106239738d76968945d3addac81dac3ad74",
+        "output_index": 0,
+        "script": "0408b686180488a46785",
+        "output_value": 134493,
+        "sequence": 4294967295,
+        "script_type": "unknown",
+        "age": 0
+      }
+    ],
+    "outputs": [
+      {
+        "value": 500,
+        "script": "76a9149f9a7abd600c0caa03983a77c8c3df8e062cb2fa88ac",
+        "addresses": [
+          "mv4rnyY3Su5gjcDNzbMLKBQkBicCtHUtFB"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      }
+    ]
+  }
+}

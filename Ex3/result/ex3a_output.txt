@@ -1,0 +1,55 @@
+PS D:\dasanshang\qukuailian\Ex3\code> python ex3a.py
+UTXO 总额: 154493 sats
+期望发送到脚本: 1000 sats
+估算费率: 100 sat/vB, 估算vsize: 200 vB -> 估算手续费: 20000 sats
+预计会生成找零: 133493 sats (返回到 my_address)
+最终决定 -> 发送到脚本: 1000 sats (1e-05 BTC)
+最终矿工费 (sats): 20000
+找零 (sats): 133493 (0.00133493 BTC) 将返回到 mh7oUi51ope66MgqMJzu7FZH8cCPJcB6qc
+send_from_P2PKH_transaction 不接受 fee/change_address 参数，使用回退策略：
+回退后将发送到脚本 (sats): 134493, (BTC): 0.00134493
+201 Created
+{
+  "tx": {
+    "block_height": -1,
+    "block_index": -1,
+    "hash": "ce1f1f8a8764d0f5a9ea3f6544240106239738d76968945d3addac81dac3ad74",
+    "addresses": [
+      "mh7oUi51ope66MgqMJzu7FZH8cCPJcB6qc"
+    ],
+    "total": 134493,
+    "fees": 20000,
+    "size": 182,
+    "vsize": 182,
+    "preference": "high",
+    "relayed_by": "202.113.19.247",
+    "received": "2025-10-16T00:42:12.077829043Z",
+    "ver": 1,
+    "double_spend": false,
+    "vin_sz": 1,
+    "vout_sz": 1,
+    "confirmations": 0,
+    "inputs": [
+      {
+        "prev_hash": "9cf2734705e32cb7fbd4ec2e0e0b3e66a7b593c98510cc0e7c6d5ef00a75f121",
+        "output_index": 1,
+        "script": "483045022100952a43e26646b365d65dd6ad72d772b2b07ca0181d01adf3ca4571cd363b9c4202203c2180e96ef7ca64225d5b2816b3ed268ad7a9cc9e7e93ab0712049db05bf3c50121026917d000b206f9326e2325ecdf073968afbb7772c8e20b8c2b6f5fe6499348aa",
+        "output_value": 154493,
+        "sequence": 4294967295,
+        "addresses": [
+          "mh7oUi51ope66MgqMJzu7FZH8cCPJcB6qc"
+        ],
+        "script_type": "pay-to-pubkey-hash",
+        "age": 0
+      }
+    ],
+    "outputs": [
+      {
+        "value": 134493,
+        "script": "6e930480111f13889404905aee1d87",
+        "addresses": null,
+        "script_type": "unknown"
+      }
+    ]
+  }
+}
