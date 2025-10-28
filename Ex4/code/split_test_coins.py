@@ -31,19 +31,24 @@ if __name__ == '__main__':
     ######################################################################
     # TODO: set these parameters correctly
     #
-    #hex_key = '06f504114d5bdecf6d67f5a4c9a3d2ef7a55daca4d14f27cded40f4c004ad9c7'
-    #my_private_key = CBitcoinSecret.from_secret_bytes(bytes.fromhex(hex_key))
-    my_private_key = CBitcoinSecret('cVid8cPTTJNSmS5L8T6EnJSfEgPDu7d8nF1X7HXj5nx4VdDRRgEM')
+
+    hex_private_key = '83b0324811c37e1d9a4d0d3c322123a15b347d7ac885f42aa2e3ede2306c63a2'
+
+# 将十六进制私钥转换为字节
+    private_key_bytes = bytes.fromhex(hex_private_key)
+
+# 创建 CBitcoinSecret 
+    my_private_key = CBitcoinSecret.from_secret_bytes(private_key_bytes)
 
     my_public_key = my_private_key.pub
     my_address = P2PKHBitcoinAddress.from_pubkey(my_public_key)
 
-    amount_to_send = 0.0001 # amount of BTC in the output you're splitting minus fee
+    amount_to_send = 0.01 # amount of BTC in the output you're splitting minus fee
     txid_to_spend = (
-        '90b30809856029a960aa3ecb9001d7f22dab31b1d9752770e5bf087a442aede5')
+        '6e09330daba0641c4ba32f2d3f06e7654a10a7af5363bf9bd2e73b1b959ae96a')
     utxo_index = 0
     n = 10 # number of outputs to split the input into
-    network = 'btc-test3' # either 'btc-test3' or 'bcy-test'
+    network = 'bcy-test' # either 'btc-test3' or 'bcy-test'
 
     #
     #

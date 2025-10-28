@@ -1,0 +1,22 @@
+Alice:
+Private key: cSYimUCYwkHA5AADWRu2VNqYfWCD1bsBVpuFCKTYJ4xAXs1PsjWU
+Address: muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b
+tx: cb9c6b15cff79ad416c3beb672a79159a0a914119958122397d32316a4c4d8a4
+We sent 0.00170696 bitcoins to address
+Token a3ccd3e9085948a0b47d70c2d55a9d1a
+"private": "f82a22112d40c2ec79e2539d8f3e5a8c4c48de667f1acb4bcde5ef138b0103d9",
+"public": "031c3b700580c864f77ea8fd1a6ab103ba6a1d0a39f880e422d2d05689db22ff75",
+"address": "C9XQDTMfZ9exoVYkuJeyA6mJfg3CGNqYLm",
+"wif": "BweRumKFyBnaDbckcDd3R33i4chhvRHG99cwt5RmnPipVE2iTL9K"
+
+
+
+Bob:
+Private key: cPjCrzNxVYmxBWj47h1YraLkQTFwyzeiNXALoBabFUR5QNeDPn6D
+Address: mucAE4gZcUXxZrnfTXwDaENNvy4mjWoXdn
+Token 6f3fa657e60a43ad92ae1a69c986629e
+"private": "83b0324811c37e1d9a4d0d3c322123a15b347d7ac885f42aa2e3ede2306c63a2",
+"public": "021d811c091c8d910f824b8166325902a1d3c92cca754df8265dc1bc510a8a8eb3",
+"address": "C4h4PJPStBrXc9swS7CravsdjokwTmVcUB",
+"wif": "Bsk1rbLBtG77niL9mjBkLyYDB8EjoVtUR5CUDTKm6XosmeojjY8f"
+"tx_ref": "6e09330daba0641c4ba32f2d3f06e7654a10a7af5363bf9bd2e73b1b959ae96a"

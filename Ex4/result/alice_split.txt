@@ -1,0 +1,120 @@
+PS D:\GitLib\Blockchain2025\Ex4\code> python split_test_coins.py
+201 Created
+{
+  "tx": {
+    "block_height": -1,
+    "block_index": -1,
+    "hash": "d65bbbe0b3fa3968691c4a46e1a8a071d90bc5ba89595cf8a9ca0488a6769195",
+    "addresses": [
+      "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+    ],
+    "total": 10000,
+    "fees": 160696,
+    "size": 498,
+    "vsize": 498,
+    "preference": "high",
+    "relayed_by": "117.131.219.56",
+    "received": "2025-10-28T00:43:14.755322268Z",
+    "ver": 1,
+    "double_spend": false,
+    "vin_sz": 1,
+    "vout_sz": 10,
+    "confirmations": 0,
+    "inputs": [
+      {
+        "prev_hash": "cb9c6b15cff79ad416c3beb672a79159a0a914119958122397d32316a4c4d8a4",
+        "output_index": 0,
+        "script": "483045022100c234c7f23fd33c183441a9a268ad7c02050f82ddc171b628f0cc1976edb0a2cc0220073e307748f39a96e1b87a39090905aebc60ed42eee8f31f0ad4aff5408b0498012103c81bcfdb9594f0d19abcc84a24a04244fbf8e17eb7936106c7b9195c0afe6ccf",
+        "output_value": 170696,
+        "sequence": 4294967295,
+        "addresses": [
+          "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+        ],
+        "script_type": "pay-to-pubkey-hash",
+        "age": 4748329
+      }
+    ],
+    "outputs": [
+      {
+        "value": 1000,
+        "script": "76a9149860d2dfee34d92372472a607f247b5fab01b58588ac",
+        "addresses": [
+          "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a9149860d2dfee34d92372472a607f247b5fab01b58588ac",
+        "addresses": [
+          "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a9149860d2dfee34d92372472a607f247b5fab01b58588ac",
+        "addresses": [
+          "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a9149860d2dfee34d92372472a607f247b5fab01b58588ac",
+        "addresses": [
+          "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a9149860d2dfee34d92372472a607f247b5fab01b58588ac",
+        "addresses": [
+          "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a9149860d2dfee34d92372472a607f247b5fab01b58588ac",
+        "addresses": [
+          "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a9149860d2dfee34d92372472a607f247b5fab01b58588ac",
+        "addresses": [
+          "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a9149860d2dfee34d92372472a607f247b5fab01b58588ac",
+        "addresses": [
+          "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a9149860d2dfee34d92372472a607f247b5fab01b58588ac",
+        "addresses": [
+          "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 1000,
+        "script": "76a9149860d2dfee34d92372472a607f247b5fab01b58588ac",
+        "addresses": [
+          "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      }
+    ]
+  }
+}
