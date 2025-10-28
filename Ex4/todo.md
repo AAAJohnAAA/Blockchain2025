@@ -12,4 +12,4 @@ d65bbbe0b3fa3968691c4a46e1a8a071d90bc5ba89595cf8a9ca0488a6769195
 
 
 # 修改swap.py 
-信息修改
+信息修改:txid;send amount;fee;height;true/false;
