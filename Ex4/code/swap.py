@@ -70,10 +70,12 @@ bob_amount_to_send      = 0.01  # 单位是 BCY
 # 当前区块高度（用于 locktime）
 # Get current block height (for locktime) in 'height' parameter for each blockchain (and put it into swap.py):
 #  curl https://api.blockcypher.com/v1/btc/test3
-btc_test3_chain_height  = 1439691
+btc_test3_chain_height  = 4751349
+#更新
 
 #  curl https://api.blockcypher.com/v1/bcy/test
-bcy_test_chain_height   = 2062296
+bcy_test_chain_height   = 22098769
+#更新
 
 # Alice 和 Bob 等待时间设置（单位是区块数）
 alice_locktime = 5
