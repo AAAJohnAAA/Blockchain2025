@@ -59,14 +59,15 @@ import bob
 # TODO: Fill in all of these fields
 #
 
-alice_txid_to_spend     = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
-alice_utxo_index        = None
-alice_amount_to_send    = None
+alice_txid_to_spend     = "d65bbbe0b3fa3968691c4a46e1a8a071d90bc5ba89595cf8a9ca0488a6769195"
+alice_utxo_index        = 0    # 从 outputs 列表中选一个索引
+alice_amount_to_send    = 0.000009   # 每个分币输出，单位 BTC
 
-bob_txid_to_spend       = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-bob_utxo_index          = 0
-bob_amount_to_send      = 0.01
+bob_txid_to_spend       = "41a53c2d0b67fdea7d45346f4e27b88e2d41bfb4f105f46c26c98377c6b5d72e"
+bob_utxo_index          = 0    # 从 outputs 列表中选一个索引
+bob_amount_to_send      = 0.01  # 单位是 BCY
 
+# 当前区块高度（用于 locktime）
 # Get current block height (for locktime) in 'height' parameter for each blockchain (and put it into swap.py):
 #  curl https://api.blockcypher.com/v1/btc/test3
 btc_test3_chain_height  = 1439691
@@ -74,12 +75,12 @@ btc_test3_chain_height  = 1439691
 #  curl https://api.blockcypher.com/v1/bcy/test
 bcy_test_chain_height   = 2062296
 
-# Parameter for how long Alice/Bob should have to wait before they can take back their coins
-## alice_locktime MUST be > bob_locktime
+# Alice 和 Bob 等待时间设置（单位是区块数）
 alice_locktime = 5
 bob_locktime = 3
 
-tx_fee = 0.001
+# 交易手续费（合理比例）
+tx_fee = 0.00001   # BTC
 
 broadcast_transactions = False
 alice_redeems = False
