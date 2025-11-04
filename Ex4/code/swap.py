@@ -60,12 +60,12 @@ import bob
 #
 
 alice_txid_to_spend     = "d65bbbe0b3fa3968691c4a46e1a8a071d90bc5ba89595cf8a9ca0488a6769195"
-alice_utxo_index        = 0    # 从 outputs 列表中选一个索引
-alice_amount_to_send    = 0.000009   # 每个分币输出，单位 BTC
+alice_utxo_index        = 5    # 从 outputs 列表中选一个索引
+alice_amount_to_send    = 0.000006   # 每个分币输出，单位 BTC
 
 bob_txid_to_spend       = "41a53c2d0b67fdea7d45346f4e27b88e2d41bfb4f105f46c26c98377c6b5d72e"
-bob_utxo_index          = 0    # 从 outputs 列表中选一个索引
-bob_amount_to_send      = 0.01  # 单位是 BCY
+bob_utxo_index          = 5    # 从 outputs 列表中选一个索引
+bob_amount_to_send      = 0.000006  # 单位是 BCY
 
 # 当前区块高度（用于 locktime）
 # Get current block height (for locktime) in 'height' parameter for each blockchain (and put it into swap.py):
@@ -82,10 +82,10 @@ alice_locktime = 5
 bob_locktime = 3
 
 # 交易手续费（合理比例）
-tx_fee = 0.00001   # BTC
+tx_fee = 0.000004   # BTC
 
-broadcast_transactions = False
-alice_redeems = False
+broadcast_transactions = True
+alice_redeems = True
 
 #
 #

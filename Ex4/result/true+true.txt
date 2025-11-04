@@ -1,0 +1,94 @@
+(venv) john@John:~/john_libr/Blockchain2025/Ex4/code$ python swap.py
+Alice swap tx (BTC) created successfully!
+201 Created
+{
+  "tx": {
+    "block_height": -1,
+    "block_index": -1,
+    "hash": "faf4efd3df0884ed65fba1513cc7db9563411caf3446e34cd7acb53db903591b",
+    "addresses": [
+      "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+    ],
+    "total": 800,
+    "fees": 200,
+    "size": 271,
+    "vsize": 271,
+    "preference": "low",
+    "relayed_by": "117.131.219.48",
+    "received": "2025-11-04T02:13:01.622582488Z",
+    "ver": 1,
+    "double_spend": false,
+    "vin_sz": 1,
+    "vout_sz": 1,
+    "confirmations": 0,
+    "inputs": [
+      {
+        "prev_hash": "d65bbbe0b3fa3968691c4a46e1a8a071d90bc5ba89595cf8a9ca0488a6769195",
+        "output_index": 3,
+        "script": "483045022100a759c2654b19e721a0a9a7e3cc2efe52d766ebfffa3fd54242561c68bf69525002207a19fa17a74d4335211262116a5caa8c7379fcfeb0bd81c8303e9afa3c54fde6012103c81bcfdb9594f0d19abcc84a24a04244fbf8e17eb7936106c7b9195c0afe6ccf",
+        "output_value": 1000,
+        "sequence": 4294967295,
+        "addresses": [
+          "muQezeEyvQ9dz4bgSzRewb72WABGaG3n7b"
+        ],
+        "script_type": "pay-to-pubkey-hash",
+        "age": 4748331
+      }
+    ],
+    "outputs": [
+      {
+        "value": 800,
+        "script": "210348799ca496c6cd3fb06aaf05495b2a1406ee24e48a2e7e0cba307c0665de1c70ac6363a914853b775079232503df966e626618e1d388a9572087635168672103c81bcfdb9594f0d19abcc84a24a04244fbf8e17eb7936106c7b9195c0afe6ccfac6351686868",
+        "addresses": null,
+        "script_type": "unknown"
+      }
+    ]
+  }
+}
+Bob swap tx (BCY) created successfully!
+201 Created
+{
+  "tx": {
+    "block_height": -1,
+    "block_index": -1,
+    "hash": "9c6408d187448f3c6df9f2c6d45a8b4c412651d85772abd135be9d07e37cb037",
+    "addresses": [
+      "C4h4PJPStBrXc9swS7CravsdjokwTmVcUB"
+    ],
+    "total": 800,
+    "fees": 99200,
+    "size": 270,
+    "vsize": 270,
+    "preference": "high",
+    "relayed_by": "117.131.219.48",
+    "received": "2025-11-04T02:13:02.386701421Z",
+    "ver": 1,
+    "double_spend": false,
+    "vin_sz": 1,
+    "vout_sz": 1,
+    "confirmations": 0,
+    "inputs": [
+      {
+        "prev_hash": "41a53c2d0b67fdea7d45346f4e27b88e2d41bfb4f105f46c26c98377c6b5d72e",
+        "output_index": 3,
+        "script": "473044022035f25acdc6449c5a77b98b4d5ed40fb280938428983748c039d5ae70a8bb1af9022043bc92723ea6ce7767dd2cc384859c7ae34dc0ee7d2c048d77cb9318cb3060be0121021d811c091c8d910f824b8166325902a1d3c92cca754df8265dc1bc510a8a8eb3",
+        "output_value": 100000,
+        "sequence": 4294967295,
+        "addresses": [
+          "C4h4PJPStBrXc9swS7CravsdjokwTmVcUB"
+        ],
+        "script_type": "pay-to-pubkey-hash",
+        "age": 2088800
+      }
+    ],
+    "outputs": [
+      {
+        "value": 800,
+        "script": "21031c3b700580c864f77ea8fd1a6ab103ba6a1d0a39f880e422d2d05689db22ff75ac6363a914853b775079232503df966e626618e1d388a95720876351686721021d811c091c8d910f824b8166325902a1d3c92cca754df8265dc1bc510a8a8eb3ac6351686868",
+        "addresses": null,
+        "script_type": "unknown"
+      }
+    ]
+  }
+}
+Sleeping for 20 minutes to let transactions confirm...

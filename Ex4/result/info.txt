@@ -20,3 +20,14 @@ Token 6f3fa657e60a43ad92ae1a69c986629e
 "address": "C4h4PJPStBrXc9swS7CravsdjokwTmVcUB",
 "wif": "Bsk1rbLBtG77niL9mjBkLyYDB8EjoVtUR5CUDTKm6XosmeojjY8f"
 "tx_ref": "6e09330daba0641c4ba32f2d3f06e7654a10a7af5363bf9bd2e73b1b959ae96a"
+
+
+
+# true+true
+BTC:"hash": "faf4efd3df0884ed65fba1513cc7db9563411caf3446e34cd7acb53db903591b"
+BCY:"hash": "9c6408d187448f3c6df9f2c6d45a8b4c412651d85772abd135be9d07e37cb037"
+
+
+# true+false
+BTC:918c0a70bacc91b16488995b7f5d3bd8689007d206b74f05dca29e7a7adeea61
+BCY:93744f4aa72d9042957d917b7e501e48141452cd5c71571c6f73d9686086d1be
