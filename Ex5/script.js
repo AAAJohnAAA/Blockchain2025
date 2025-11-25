@@ -4,9 +4,9 @@
 
 // sets up web3.js
 if (typeof web3 !== 'undefined')  {
-	web3 = new Web3(web3.currentProvider);
+    web3 = new Web3(web3.currentProvider);
 } else {
-	web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
 
 // Default account is the first one
@@ -14,140 +14,176 @@ web3.eth.defaultAccount = web3.eth.accounts[0];
 // Constant we use later
 var GENESIS = '0x0000000000000000000000000000000000000000000000000000000000000000';
 
-// This is the ABI for your contract (get it from Remix, in the 'Compile' tab)
-// ============================================================
-var abi = []; // FIXME: fill this in with your contract's ABI
+// This is the ABI for your contract
+var abi = [
+    {
+        "constant": false,
+        "inputs": [
+            { "internalType": "address", "name": "creditor", "type": "address" },
+            { "internalType": "uint32", "name": "amount", "type": "uint32" },
+            { "internalType": "address[]", "name": "cyclePath", "type": "address[]" },
+            { "internalType": "uint32", "name": "cycleMin", "type": "uint32" }
+        ],
+        "name": "recordDebt",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            { "internalType": "address", "name": "debtor", "type": "address" },
+            { "internalType": "address", "name": "creditor", "type": "address" }
+        ],
+        "name": "getDebt",
+        "outputs": [
+            { "internalType": "uint32", "name": "", "type": "uint32" }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    }
+];
+
 // ============================================================
 abiDecoder.addABI(abi);
-// call abiDecoder.decodeMethod to use this - see 'getAllFunctionCalls' for more
-
-// Reads in the ABI
 var BlockchainSplitwiseContractSpec = web3.eth.contract(abi);
-
-// This is the address of the contract you want to connect to; copy this from Remix
-var contractAddress = '0x??????????????????????????????????????????????????????' // FIXME: fill this in with your contract's address/hash
-
-var BlockchainSplitwise = BlockchainSplitwiseContractSpec.at(contractAddress)
-
+var contractAddress = '0x15b73A34011f1d8FBe53432b392327b695F840bb'; // 修改为你的合约地址
+var BlockchainSplitwise = BlockchainSplitwiseContractSpec.at(contractAddress);
 
 // =============================================================================
-//                            Functions To Implement 
+//                            Functions
 // =============================================================================
 
-// TODO: Add any helper functions here!
+// Helper to scan call data
+function getCallData(extractor_fn, early_stop_fn = null) {
+    const results = new Set();
+    const all_calls = getAllFunctionCalls(contractAddress, 'recordDebt', early_stop_fn);
+    all_calls.forEach(call => {
+        extractor_fn(call).forEach(value => results.add(value));
+    });
+    return Array.from(results);
+}
 
-// TODO: Return a list of all users (creditors or debtors) in the system
-// You can return either:
-//   - a list of everyone who has ever sent or received an IOU
-// OR
-//   - a list of everyone currently owing or being owed money
+// Get all creditors
+function getCreditors() {
+    return getCallData(call => [call.args[0]]);
+}
+
+// Get creditors for a specific user
+function getCreditorsForUser(user) {
+    return getCreditors().filter(creditor => BlockchainSplitwise.getDebt(user, creditor).toNumber() > 0);
+}
+
+// Find minimum debt on a path
+function findMinOnPath(path) {
+    return path.slice(1).reduce((minOwed, debtor, i) => {
+        const creditor = path[i];
+        const amountOwed = BlockchainSplitwise.getDebt(debtor, creditor).toNumber();
+        return minOwed == null || minOwed > amountOwed ? amountOwed : minOwed;
+    }, null);
+}
+
+// Get all users (debtors + creditors)
 function getUsers() {
-	return [];
+    return getCallData(call => [call.from, call.args[0]]);
 }
 
-// TODO: Get the total amount owed by the user specified by 'user'
+// Get total owed by user
 function getTotalOwed(user) {
-
+    return getCreditors().reduce((total, creditor) =>
+        total + BlockchainSplitwise.getDebt(user, creditor).toNumber(), 0);
 }
 
-// TODO: Get the last time this user has sent or received an IOU, in seconds since Jan. 1, 1970
-// Return null if you can't find any activity for the user.
-// HINT: Try looking at the way 'getAllFunctionCalls' is written. You can modify it if you'd like.
+// Get last activity timestamp for a user
 function getLastActive(user) {
-
+    const all_timestamps = getCallData(call =>
+        (call.from === user || call.args[0] === user) ? [call.timestamp] : []
+    );
+    return all_timestamps.length ? Math.max(...all_timestamps) : null;
 }
 
-// TODO: add an IOU ('I owe you') to the system
-// The person you owe money is passed as 'creditor'
-// The amount you owe them is passed as 'amount'
+// Add an IOU
 function add_IOU(creditor, amount) {
+    const debtor = web3.eth.defaultAccount;
+    const path = doBFS(creditor, debtor, getCreditorsForUser);
 
+    if (path) {
+        const min_on_cycle = Math.min(findMinOnPath(path), amount);
+        return BlockchainSplitwise.recordDebt(creditor, amount, path, min_on_cycle, { from: debtor });
+    }
+    return BlockchainSplitwise.recordDebt(creditor, amount, [], 0, { from: debtor });
 }
 
 // =============================================================================
-//                              Provided Functions 
+// Provided utility functions
 // =============================================================================
-// Reading and understanding these should help you implement the above
-
-// This searches the block history for all calls to 'functionName' (string) on the 'addressOfContract' (string) contract
-// It returns an array of objects, one for each call, containing the sender ('from') and arguments ('args')
-function getAllFunctionCalls(addressOfContract, functionName) {
-	var curBlock = web3.eth.blockNumber;
-	var function_calls = [];
-	while (curBlock !== GENESIS) {
-	  var b = web3.eth.getBlock(curBlock, true);
-	  var txns = b.transactions;
-	  for (var j = 0; j < txns.length; j++) {
-	  	var txn = txns[j];
-	  	// check that destination of txn is our contract
-	  	if (txn.to === addressOfContract) {
-	  		var func_call = abiDecoder.decodeMethod(txn.input);
-	  		// check that the function getting called in this txn is 'functionName'
-	  		if (func_call && func_call.name === functionName) {
-	  			var args = func_call.params.map(function (x) {return x.value});
-	  			function_calls.push({
-	  				from: txn.from,
-	  				args: args
-	  			})
-	  		}
-	  	}
-	  }
-	  curBlock = b.parentHash;
-	}
-	return function_calls;
+function getAllFunctionCalls(addressOfContract, functionName, earlyStopFn) {
+    var curBlock = web3.eth.blockNumber;
+    var function_calls = [];
+    while (curBlock !== GENESIS) {
+        var b = web3.eth.getBlock(curBlock, true);
+        var txns = b.transactions;
+        for (var j = 0; j < txns.length; j++) {
+            var txn = txns[j];
+            if (txn.to === addressOfContract.toLowerCase()) {
+                var func_call = abiDecoder.decodeMethod(txn.input);
+                if (func_call && func_call.name === functionName) {
+                    var args = func_call.params.map(x => x.value);
+                    function_calls.push({ from: txn.from, args: args, timestamp: b.timestamp });
+                    if (earlyStopFn && earlyStopFn(function_calls[function_calls.length - 1])) {
+                        return function_calls;
+                    }
+                }
+            }
+        }
+        curBlock = b.parentHash;
+    }
+    return function_calls;
 }
 
-// We've provided a breadth-first search implementation for you, if that's useful
-// It will find a path from start to end (or return null if none exists)
-// You just need to pass in a function ('getNeighbors') that takes a node (string) and returns its neighbors (as an array)
 function doBFS(start, end, getNeighbors) {
-	var queue = [[start]];
-	while (queue.length > 0) {
-		var cur = queue.shift();
-		var lastNode = cur[cur.length-1]
-		if (lastNode === end) {
-			return cur;
-		} else {
-			var neighbors = getNeighbors(lastNode);
-			for (var i = 0; i < neighbors.length; i++) {
-				queue.push(cur.concat([neighbors[i]]));
-			}
-		}
-	}
-	return null;
+    var queue = [[start]];
+    while (queue.length > 0) {
+        var cur = queue.shift();
+        var lastNode = cur[cur.length - 1];
+        if (lastNode === end) {
+            return cur;
+        } else {
+            var neighbors = getNeighbors(lastNode);
+            for (var i = 0; i < neighbors.length; i++) {
+                queue.push(cur.concat([neighbors[i]]));
+            }
+        }
+    }
+    return null;
 }
-// =============================================================================
-//                                      UI 
-// =============================================================================
 
-// This code updates the 'My Account' UI with the results of your functions
+// =============================================================================
+// UI
+// =============================================================================
 $("#total_owed").html("$"+getTotalOwed(web3.eth.defaultAccount));
 $("#last_active").html(timeConverter(getLastActive(web3.eth.defaultAccount)));
+
 $("#myaccount").change(function() {
-	web3.eth.defaultAccount = $(this).val();
-	$("#total_owed").html("$"+getTotalOwed(web3.eth.defaultAccount));
-	$("#last_active").html(timeConverter(getLastActive(web3.eth.defaultAccount)))
+    web3.eth.defaultAccount = $(this).val();
+    $("#total_owed").html("$"+getTotalOwed(web3.eth.defaultAccount));
+    $("#last_active").html(timeConverter(getLastActive(web3.eth.defaultAccount)))
 });
 
-// Allows switching between accounts in 'My Account' and the 'fast-copy' in 'Address of person you owe
-var opts = web3.eth.accounts.map(function (a) { return '<option value="'+a+'">'+a+'</option>' })
+var opts = web3.eth.accounts.map(a => '<option value="'+a+'">'+a+'</option>');
 $(".account").html(opts);
-$(".wallet_addresses").html(web3.eth.accounts.map(function (a) { return '<li>'+a+'</li>' }))
+$(".wallet_addresses").html(web3.eth.accounts.map(a => '<li>'+a+'</li>'));
+$("#all_users").html(getUsers().map((u,i) => "<li>"+u+"</li>"));
 
-// This code updates the 'Users' list in the UI with the results of your function
-$("#all_users").html(getUsers().map(function (u,i) { return "<li>"+u+"</li>" }));
-
-// This runs the 'add_IOU' function when you click the button
-// It passes the values from the two inputs above
+// Button click
 $("#addiou").click(function() {
-  add_IOU($("#creditor").val(), $("#amount").val());
-  window.location.reload(true); // refreshes the page after
+    add_IOU($("#creditor").val(), Number($("#amount").val()));
+    window.location.reload(false);
 });
 
-// This is a log function, provided if you want to display things to the page instead of the JavaScript console
-// Pass in a discription of what you're printing, and then the object to print
+// Log function
 function log(description, obj) {
-	$("#log").html($("#log").html() + description + ": " + JSON.stringify(obj, null, 2) + "\n\n");
+    $("#log").html($("#log").html() + description + ": " + JSON.stringify(obj, null, 2) + "\n\n");
 }
-
-
