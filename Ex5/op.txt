@@ -1,3 +1,4 @@
+1、执行ganache-cli获取账户：
 PS D:\GitLib\Blockchain2025\Ex5> ganache-cli
 Ganache CLI v6.12.2 (ganache-core: 2.13.2)
 
@@ -30,9 +31,45 @@ Private Keys
 HD Wallet
 ==================
 
-
-
-使用账户：
+2、交易使用的账户：
 A:0xb22ed276e8293bab899ad42b5859574f7e896eae
 B:0x8702ac9095960d904de2f9f1aab0f85ca5c95496
 C:0x8065b1d117f9f3bd7bbdeb1af112e2785990a190
+
+3、abi信息：
+
+var abi = [
+    {
+        "constant": false,
+        "inputs": [
+            { "internalType": "address", "name": "creditor", "type": "address" },
+            { "internalType": "uint32", "name": "amount", "type": "uint32" },
+            { "internalType": "address[]", "name": "cyclePath", "type": "address[]" },
+            { "internalType": "uint32", "name": "cycleMin", "type": "uint32" }
+        ],
+        "name": "recordDebt",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            { "internalType": "address", "name": "debtor", "type": "address" },
+            { "internalType": "address", "name": "creditor", "type": "address" }
+        ],
+        "name": "getDebt",
+        "outputs": [
+            { "internalType": "uint32", "name": "", "type": "uint32" }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    }
+];
+
+4、合约地址：
+var contractAddress = '0x15b73A34011f1d8FBe53432b392327b695F840bb'; // 修改为你的合约地址
+
+5、端口默认为8545
